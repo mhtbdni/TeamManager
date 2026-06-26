@@ -1,0 +1,83 @@
+<TaskScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Tasks"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'projects')]]
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "10dp"
+            padding: "15dp"
+
+            MDLabel:
+                id: project_title
+                text: ""
+                font_style: "H6"
+                halign: "center"
+                size_hint_y: None
+                height: "36dp"
+
+            MDProgressBar:
+                id: progress_bar
+                value: 0
+                max: 100
+                size_hint_y: None
+                height: "10dp"
+
+            MDLabel:
+                id: progress_label
+                text: "Progress: 0%"
+                halign: "center"
+                size_hint_y: None
+                height: "24dp"
+
+            MDTextField:
+                id: task_title
+                hint_text: "New Task Title"
+                size_hint_y: None
+                height: "56dp"
+            MDTextField:
+                id: priority
+                hint_text: "Priority (Low / Medium / High)"
+                size_hint_y: None
+                height: "56dp"
+
+            MDTextField:
+                id: deadline
+                hint_text: "Deadline (YYYY-MM-DD)"
+                size_hint_y: None
+                height: "56dp"
+            MDTextField:
+                id: member
+                hint_text: "Assigned To"    
+            MDRaisedButton:
+                text: "Add Task"
+                pos_hint: {"center_x": .5}
+                on_release: root.save_task()
+
+            MDLabel:
+                id: message
+                text: ""
+                halign: "center"
+                size_hint_y: None
+                height: "24dp"
+                theme_text_color: "Custom"
+                text_color: 0.2, 0.6, 0.2, 1
+
+            ScrollView:
+
+                MDGridLayout:
+                    id: task_list
+                    cols: 1
+                    adaptive_height: True
+                    spacing: "10dp"
+                    padding: "5dp"
+
+            MDRaisedButton:
+                text: "Back to Projects"
+                pos_hint: {"center_x": .5}
+                on_release: app.root.current = "projects"
+            

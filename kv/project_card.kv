@@ -1,0 +1,40 @@
+<ProjectCard>:
+
+    orientation: "vertical"
+    padding: "15dp"
+    spacing: "10dp"
+
+    size_hint_y: None
+    height: "190dp"
+
+    radius: [15]
+
+    MDLabel:
+        text: root.title
+        font_style: "H5"
+
+    MDLabel:
+        text: root.description
+
+    MDLabel:
+        text: "Deadline : " + root.deadline
+
+    MDBoxLayout:
+        spacing: "10dp"
+
+        MDRaisedButton:
+            text: "Open"
+
+            on_release:
+                root.open()
+
+        MDRaisedButton:
+            text: "Edit"
+            on_release:
+                root.edit()
+
+        MDRaisedButton:
+            text: "Delete"
+            md_bg_color: 1, 0, 0, 1
+            on_release:
+                root.delete()

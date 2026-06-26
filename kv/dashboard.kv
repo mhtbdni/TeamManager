@@ -1,0 +1,64 @@
+<DashboardScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Dashboard"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: "24dp"
+            spacing: "16dp"
+
+            MDCard:
+                orientation: "vertical"
+                padding: "16dp"
+                spacing: "10dp"
+                size_hint_y: None
+                height: "200dp"
+                radius: [12]
+                elevation: 4
+
+                MDLabel:
+                    text: "Overview"
+                    font_style: "H6"
+                    bold: True
+
+                MDLabel:
+                    id: project_count
+                    text: "Projects: 0"
+
+                MDLabel:
+                    id: task_count
+                    text: "Total Tasks: 0"
+
+                MDLabel:
+                    id: completed_count
+                    text: "Completed Tasks: 0"
+
+                MDLabel:
+                    id: avg_progress
+                    text: "Average Progress: 0%"
+
+            MDProgressBar:
+                id: overall_progress
+                value: 0
+                max: 100
+                size_hint_y: None
+                height: "12dp"
+
+            MDBoxLayout:
+                spacing: "12dp"
+                size_hint_y: None
+                height: "48dp"
+
+                MDRaisedButton:
+                    text: "Manage Projects"
+                    size_hint_x: 1
+                    on_release: root.open_projects()
+
+            MDFlatButton:
+                text: "Logout"
+                pos_hint: {"center_x": .5}
+                on_release: root.logout()

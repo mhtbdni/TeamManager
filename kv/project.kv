@@ -1,0 +1,57 @@
+<ProjectScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Projects"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "10dp"
+            padding: "15dp"
+
+            MDTextField:
+                id: title
+                hint_text: "Project Title"
+
+            MDTextField:
+                id: description
+                hint_text: "Description"
+
+            MDTextField:
+                id: deadline
+                hint_text: "Deadline"
+
+            MDRaisedButton:
+                text: "Save Project"
+                on_release:
+                    root.save_project()
+            MDRaisedButton:
+                text:"Update Project"
+
+                on_release:
+                    root.update_selected()
+            MDLabel:
+                id: message
+                text: ""
+                halign: "center"
+
+            ScrollView:
+
+                MDGridLayout:
+
+                    id:project_list
+
+                    cols:1
+
+                    adaptive_height:True
+
+                    spacing:"10dp"
+
+                    padding:"5dp"
+
+            MDRaisedButton:
+                text: "Back"
+                on_release:
+                    root.manager.current = "dashboard"
